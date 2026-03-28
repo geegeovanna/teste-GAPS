@@ -1,21 +1,32 @@
 ```mermaid
-graph TD
-subgraph Matriz
 
-A1["Refatorar 2"]:::branco-->
-A2["Comunicação Banco 5"]:::laranja-->
-A3["Conexão Internet 2"]:::amarelo
+gantt
+   %%%Definir título principal
+   title Desenvolvimento de Software
 
-B1["M Design 1"]:::branco-->
-B2["N Backup"]:::laranja-->
-B3["N Servidor"]:::vermelho
+   %%%Definir o formato data (Ano-Mês-Dia)
+   dateFormat YYYY-MM-DD
 
-end
+   %%%Criação do agrupamento visual para as tarefas iniciais
+   section Plnejamento
 
-classDef branco fill:#fff, stroke:#000, stroke-width:1px;
-classDef laranja fill:#FFA233, stroke:#000, stroke-width:1px;
-classDef amarelo fill:#FFD84D, stroke:#000, stroke-width:1px;
-classDef vermelho fill:#E64C3C, stroke:#000, stroke-width:1px;  
+   %%%'done': Tarefa concluida(fica cinza). 'req' é o ID da tarefa - 2026-03-11 'data de inicio' - 10d - 'duracao'
+   Requisitos :done, req, 2026-03-11, 10d
 
+   %%%'active' Tarefa em andamento
+   Design :active, des, 2026-03-20, 15d
+
+   %%%Criação do segundo bloco
+   section Desenvolvimento
+
+   %%%'crit' Define como tarefa crítica (cor vermelha ou destaque)
+   Codificacao :crit, dev, 2026-03-25, 30d
+
+   %%%'after dev': Realiza a tarefa quando a tarefa dev terminar
+   Teste :test, after dev, 15d
+
+   section Lançamento
+   Implantação: dep, after test, 5d
+   Treinamento: tra, after dep, 10d
 
 ```
